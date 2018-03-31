@@ -19,7 +19,7 @@ package com.aladdinshow.search.binary;
  *
  * @author aladdin
  */
-public class Sqrt {
+public class Problem69 {
 
 	public static void main(String[] args) {
 		int x = 10;
