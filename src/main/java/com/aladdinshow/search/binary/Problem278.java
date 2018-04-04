@@ -14,6 +14,8 @@ import java.util.Random;
  * * You are given an API bool isBadVersion(version) which will return whether version is bad.
  * * Implement a function to find the first bad version.
  * * You should minimize the number of calls to the API.
+ *
+ * @author aladdin
  */
 public class Problem278 extends VersionControl {
 
