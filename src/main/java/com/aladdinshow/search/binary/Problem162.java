@@ -14,6 +14,7 @@ package com.aladdinshow.search.binary;
  * <p>
  * https://leetcode.com/problems/find-peak-element/solution/
  *
+ * {@link Problem852}
  * @author aladdin
  */
 public class Problem162 {
@@ -65,6 +66,36 @@ public class Problem162 {
             return start;
         }
     }
+
+	public int findPeakElement(int[] nums) {
+		if (nums == null || nums.length == 0) {
+			return -1;
+		}
+		int start = 0;
+		int end = nums.length - 1;
+		//start + 1 < end 可以过滤nums.length小于3的情况
+		while (start + 1 < end) {
+			int mid = start + (end - start) / 2;
+			if (nums[mid] > nums[mid - 1] && nums[mid] > nums[mid + 1]) {
+				//波峰
+				return mid;
+			} else if (nums[mid] > nums[mid - 1] && nums[mid] < nums[mid + 1]) {
+				//上升区间
+				start = mid;
+			} else if (nums[mid] < nums[mid - 1] && nums[mid] < nums[mid + 1]) {
+				//下降区间
+				end = mid;
+			} else {
+				//波谷
+				end = mid;
+			}
+		}
+		if (nums[start] > nums[end]) {
+			return start;
+		} else {
+			return end;
+		}
+	}
 
     /**
      * 遍历查找
